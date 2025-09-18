@@ -1,0 +1,269 @@
+{
+  "model_name": "gemma-3n-E2B-it",
+  "provider": "unknown",
+  "categories": {
+    "portuguese": {
+      "task_scores": {
+        "assin2_rte": {
+          "score": 0.9252429898198342,
+          "stderr": 0.003760520912911408,
+          "metric": "f1_macro",
+          "alias": "assin2_rte"
+        },
+        "bluex": {
+          "score": 0.5563282336578581,
+          "stderr": 0.010672135581811038,
+          "metric": "acc",
+          "alias": "bluex"
+        },
+        "enem_challenge": {
+          "score": 0.6801959412176347,
+          "stderr": 0.007146051527313592,
+          "metric": "acc",
+          "alias": "enem_challenge"
+        },
+        "faquad_nli": {
+          "score": 0.7057324514323299,
+          "stderr": 0.013864388021898287,
+          "metric": "f1_macro",
+          "alias": "faquad_nli"
+        },
+        "oab_exams": {
+          "score": 0.46879271070615036,
+          "stderr": 0.006150194047688753,
+          "metric": "acc",
+          "alias": "oab_exams"
+        }
+      },
+      "category_scores": {
+        "latam_pr": {
+          "score": 0.8553640983314567,
+          "stderr": 0.005968246237718761,
+          "metric": "acc",
+          "alias": "latam_pr"
+        }
+      },
+      "top_level_scores": {
+        "latam_pr": {
+          "score": 0.8553640983314567,
+          "stderr": 0.005968246237718761,
+          "metric": "acc",
+          "alias": "latam_pr"
+        }
+      },
+      "overall_score": 0.8553640983314567,
+      "model_name": "gemma-3n-E2B-it",
+      "model_name_sanitized": "unknown",
+      "evaluation_time": "unknown"
+    },
+    "spanish": {
+      "task_scores": {
+        "spanish": {
+          "score": 0.4470233609645818,
+          "stderr": 0.0059363548710711575,
+          "metric": "acc",
+          "alias": "spanish"
+        },
+        "copa_es": {
+          "score": 0.566,
+          "stderr": 0.02218721580302901,
+          "metric": "acc",
+          "alias": "copa_es"
+        },
+        "escola": {
+          "score": 0.5679012345679012,
+          "stderr": 0.015272848692082622,
+          "metric": "acc",
+          "alias": "escola"
+        },
+        "mgsm_direct_es_spanish_bench": {
+          "score": 0.016,
+          "stderr": 0.00795166118887433,
+          "metric": "exact_match",
+          "alias": "mgsm_direct_es_spanish_bench"
+        },
+        "openbookqa_es": {
+          "score": 0.226,
+          "stderr": 0.01872295644913999,
+          "metric": "acc",
+          "alias": "openbookqa_es"
+        },
+        "paws_es_spanish_bench": {
+          "score": 0.527,
+          "stderr": 0.011166819105029964,
+          "metric": "acc",
+          "alias": "paws_es_spanish_bench"
+        },
+        "teleia": {
+          "score": 0.5238095238095238,
+          "stderr": 0.09515538736731587,
+          "metric": "acc_norm",
+          "alias": "teleia"
+        },
+        "teleia_cervantes_ave": {
+          "score": 0.0,
+          "stderr": 0.0,
+          "metric": "acc",
+          "alias": "teleia_cervantes_ave"
+        },
+        "teleia_pce": {
+          "score": 0.2857142857142857,
+          "stderr": 0.18442777839082938,
+          "metric": "acc",
+          "alias": "teleia_pce"
+        },
+        "teleia_siele": {
+          "score": 0.75,
+          "stderr": 0.16366341767699427,
+          "metric": "acc",
+          "alias": "teleia_siele"
+        },
+        "wnli_es": {
+          "score": 0.676056338028169,
+          "stderr": 0.055934166129236386,
+          "metric": "acc",
+          "alias": "wnli_es"
+        },
+        "xnli_es_spanish_bench": {
+          "score": 0.3461847389558233,
+          "stderr": 0.009536061379898198,
+          "metric": "acc",
+          "alias": "xnli_es_spanish_bench"
+        }
+      },
+      "category_scores": {
+        "latam_es": {
+          "score": 0.43831739969624217,
+          "stderr": 0.0059363548710711575,
+          "metric": "acc",
+          "alias": "latam_es"
+        },
+        "spanish": {
+          "score": 0.4470233609645818,
+          "stderr": 0.0059363548710711575,
+          "metric": "acc",
+          "alias": "spanish"
+        },
+        "teleia": {
+          "score": 0.5238095238095238,
+          "stderr": 0.09515538736731587,
+          "metric": "acc_norm",
+          "alias": "teleia"
+        }
+      },
+      "top_level_scores": {
+        "latam_es": {
+          "score": 0.43831739969624217,
+          "stderr": 0.0059363548710711575,
+          "metric": "acc",
+          "alias": "latam_es"
+        },
+        "spanish": {
+          "score": 0.4470233609645818,
+          "stderr": 0.0059363548710711575,
+          "metric": "acc",
+          "alias": "spanish"
+        },
+        "teleia": {
+          "score": 0.5238095238095238,
+          "stderr": 0.09515538736731587,
+          "metric": "acc_norm",
+          "alias": "teleia"
+        }
+      },
+      "overall_score": 0.46971676149011593,
+      "model_name": "gemma-3n-E2B-it",
+      "model_name_sanitized": "unknown",
+      "evaluation_time": "unknown"
+    }
+  },
+  "overall_latam_score": 0.6468407490138495,
+  "tasks_mapping": {
+    "task_groups": {
+      "latam_pr": {
+        "name": "Portuguese LATAM",
+        "description": "Portuguese language tasks for Latin America",
+        "subtasks": [
+          "assin2_rte",
+          "assin2_sts",
+          "bluex",
+          "enem_challenge",
+          "faquad_nli",
+          "oab_exams"
+        ]
+      },
+      "latam_es": {
+        "name": "Spanish LATAM",
+        "description": "Spanish language tasks for Latin America",
+        "subtasks": [
+          "spanish"
+        ]
+      },
+      "spanish": {
+        "name": "Spanish",
+        "description": "Spanish language tasks",
+        "subtasks": [
+          "copa_es",
+          "escola",
+          "mgsm_direct_es_spanish_bench",
+          "openbookqa_es",
+          "paws_es_spanish_bench",
+          "teleia",
+          "wnli_es",
+          "xnli_es_spanish_bench"
+        ]
+      },
+      "teleia": {
+        "name": "Teleia",
+        "description": "Teleia Spanish language assessment tasks",
+        "subtasks": [
+          "teleia_cervantes_ave",
+          "teleia_pce",
+          "teleia_siele"
+        ]
+      }
+    },
+    "task_descriptions": {
+      "assin2_rte": "Portuguese RTE (Recognizing Textual Entailment) from ASSIN2",
+      "assin2_sts": "Portuguese STS (Semantic Textual Similarity) from ASSIN2",
+      "bluex": "Portuguese BLUEX benchmark",
+      "enem_challenge": "Portuguese ENEM (National High School Exam) challenge",
+      "faquad_nli": "Portuguese FaQuAD NLI (Natural Language Inference)",
+      "oab_exams": "Portuguese OAB (Brazilian Bar Association) exams",
+      "copa_es": "Spanish COPA (Choice of Plausible Alternatives)",
+      "escola": "Spanish EsCoLA (Spanish Corpus of Linguistic Acceptability)",
+      "mgsm_direct_es_spanish_bench": "Spanish MGSM (Multilingual Grade School Math)",
+      "openbookqa_es": "Spanish OpenBookQA",
+      "paws_es_spanish_bench": "Spanish PAWS (Paraphrase Adversaries from Word Scrambling)",
+      "teleia_cervantes_ave": "Teleia Cervantes AVE assessment",
+      "teleia_pce": "Teleia PCE (Prueba de Conocimientos Espec\u00edficos)",
+      "teleia_siele": "Teleia SIELE (Servicio Internacional de Evaluaci\u00f3n de la Lengua Espa\u00f1ola)",
+      "wnli_es": "Spanish WNLI (Winograd Natural Language Inference)",
+      "xnli_es_spanish_bench": "Spanish XNLI (Cross-lingual Natural Language Inference)"
+    },
+    "hierarchy": {
+      "latam_pr": {
+        "level": 1,
+        "type": "top_level",
+        "language": "portuguese"
+      },
+      "latam_es": {
+        "level": 1,
+        "type": "top_level",
+        "language": "spanish"
+      },
+      "spanish": {
+        "level": 2,
+        "type": "category",
+        "language": "spanish",
+        "parent": "latam_es"
+      },
+      "teleia": {
+        "level": 3,
+        "type": "subcategory",
+        "language": "spanish",
+        "parent": "spanish"
+      }
+    }
+  }
+}
