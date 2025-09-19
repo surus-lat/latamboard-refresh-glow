@@ -37,9 +37,9 @@ function App() {
               © {new Date().getFullYear()} surus.dev — LATAM Leaderboard
             </div>
             <div className="flex gap-4">
-              <a href="https://surus.dev" target="_blank" rel="noreferrer" className="hover:text-secondary">Website</a>
-              <a href="https://discord.com/invite/yGCCUhqtpS" target="_blank" rel="noreferrer" className="hover:text-secondary">Discord</a>
-              <a href="mailto:contacto@surus.dev" className="hover:text-secondary">Email</a>
+              <a href="https://surus.dev" target="_blank" rel="noreferrer" className="hover:text-secondary">Our Website</a>
+              <a href="https://discord.com/invite/yGCCUhqtpS" target="_blank" rel="noreferrer" className="hover:text-secondary">Join our Discord</a>
+              <a href="mailto:contacto@surus.dev" className="hover:text-secondary">contacto@surus.dev</a>
             </div>
           </div>
         </footer>

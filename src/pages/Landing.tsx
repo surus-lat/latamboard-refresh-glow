@@ -126,8 +126,7 @@ export function Landing() {
   return (
     <div className="container py-10">
       <section className="text-center space-y-4 py-10">
-        <div className="mx-auto h-14 w-14 rounded-lg bg-gradient-to-br from-secondary to-tertiary shadow" />
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight">LATAM Leaderboard</h1>
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-secondary">LATAM Leaderboard</h1>
         <p className="max-w-2xl mx-auto text-muted-foreground">
         The community-driven platform for evaluating AI models on Spanish and Portuguese benchmarks. Advancing AI excellence across Latin America through transparent, rigorous evaluation.
         </p>

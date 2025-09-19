@@ -3,7 +3,6 @@ import { useState } from 'react'
 type FormState = {
   modelName: string
   precision: string
-  revision: string
   email: string
 }
 
@@ -17,7 +16,7 @@ type TaskFormState = {
 }
 
 export function Submit() {
-  const [form, setForm] = useState<FormState>({ modelName: '', precision: '', revision: '', email: '' })
+  const [form, setForm] = useState<FormState>({ modelName: '', precision: '', email: '' })
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [taskForm, setTaskForm] = useState<TaskFormState>({ taskId: '', name: '', group: '', url: '', description: '', email: '' })
   const [taskStatus, setTaskStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
@@ -40,7 +39,7 @@ export function Submit() {
       console.log('Submission', form)
       await new Promise((r) => setTimeout(r, 600))
       setStatus('success')
-      setForm({ modelName: '', precision: '', revision: '', email: '' })
+      setForm({ modelName: '', precision: '', email: '' })
     } catch (e) {
       setStatus('error')
     }
@@ -72,10 +71,6 @@ export function Submit() {
           <input id="precision" name="precision" required value={form.precision} onChange={handleChange} className="w-full rounded border bg-background px-3 py-2" placeholder="e.g. bf16, fp8" />
         </div>
         <div>
-          <label className="block text-sm mb-1" htmlFor="revision">Revision commit</label>
-          <input id="revision" name="revision" required value={form.revision} onChange={handleChange} className="w-full rounded border bg-background px-3 py-2" placeholder="commit SHA" />
-        </div>
-        <div>
           <label className="block text-sm mb-1" htmlFor="email">Email</label>
           <input id="email" name="email" type="email" required value={form.email} onChange={handleChange} className="w-full rounded border bg-background px-3 py-2" placeholder="you@example.com" />
         </div>
@@ -105,7 +100,7 @@ export function Submit() {
               <option value="">Select…</option>
               <option value="latam_es">Spanish (latam_es)</option>
               <option value="latam_pr">Portuguese (latam_pr)</option>
-              <option value="latam_pr">Other (latam_pr)</option>
+              <option value="latam_ts">Other (latam_ts)</option>
             </select>
           </div>
           <div>
