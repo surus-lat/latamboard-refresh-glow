@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useI18n } from '../i18n/I18nProvider'
 
 type Task = {
   name: string
@@ -58,6 +59,7 @@ function groupStyles(groupKey: string) {
 }
 
 export function Tests() {
+  const { t } = useI18n()
   const { groups, tasks, error } = useTasksData()
   const [expanded, setExpanded] = useState<Record<string, boolean>>({})
   const [groupExpanded, setGroupExpanded] = useState<Record<string, boolean>>({})
@@ -82,18 +84,18 @@ export function Tests() {
   }
 
   if (error) {
-    return <div className="container py-10 text-destructive">{error}</div>
+    return <div className="container py-10 text-destructive">{t('tests.failed_meta')}</div>
   }
 
   if (!groups) {
-    return <div className="container py-10 text-muted-foreground">Loading tasks…</div>
+    return <div className="container py-10 text-muted-foreground">{t('tests.loading')}</div>
   }
 
   const entries = Object.entries(groups.task_groups)
 
   return (
     <div className="container py-10">
-      <h1 className="text-3xl font-bold mb-6">Tasks</h1>
+      <h1 className="text-3xl font-bold mb-6">{t('tests.title')}</h1>
 
       <div className="space-y-10">
         {entries.map(([groupKey, group]) => (
@@ -122,7 +124,7 @@ export function Tests() {
                     rel="noreferrer"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    Repository
+                    {t('tests.repo')}
                   </a>
                 )}
               </div>
@@ -137,7 +139,7 @@ export function Tests() {
                   <button aria-expanded={!!expanded[id]} onClick={() => toggle(id)} className="w-full text-left p-4">
                     <div className="font-medium">{task.name}</div>
                     <div className="text-sm text-muted-foreground">{task.description}</div>
-                    <div className="mt-2 text-xs text-muted-foreground">Key: {id}{typeof task.fewshot === 'number' ? ` • shots: ${task.fewshot}` : ''}</div>
+                    <div className="mt-2 text-xs text-muted-foreground">{t('tests.key')}: {id}{typeof task.fewshot === 'number' ? ` • ${t('tests.shots')}: ${task.fewshot}` : ''}</div>
                   </button>
                   {expanded[id] && (
                     <div className="px-4 pb-4 text-sm text-foreground/90">
@@ -145,7 +147,7 @@ export function Tests() {
                         <div className="mb-2" dangerouslySetInnerHTML={renderMarkdownLinks(task.long_description)} />
                       )}
                       {task.URL && (
-                        <a className="text-xs underline text-secondary" href={task.URL} target="_blank" rel="noreferrer">Dataset</a>
+                        <a className="text-xs underline text-secondary" href={task.URL} target="_blank" rel="noreferrer">{t('tests.dataset')}</a>
                       )}
                     </div>
                   )}

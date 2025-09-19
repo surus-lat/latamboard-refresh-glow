@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useI18n } from '../i18n/I18nProvider'
 
 type LeaderboardRow = Record<string, string | number | null>
 
@@ -43,6 +44,7 @@ const DEFAULT_VISIBLE = [
 ]
 
 export function Landing() {
+  const { t } = useI18n()
   const [data, setData] = useState<LeaderboardRow[] | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [visibleColumns, setVisibleColumns] = useState<string[]>(DEFAULT_VISIBLE)
@@ -126,10 +128,8 @@ export function Landing() {
   return (
     <div className="container py-10">
       <section className="text-center space-y-4 py-10">
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-secondary">LATAM Leaderboard</h1>
-        <p className="max-w-2xl mx-auto text-muted-foreground">
-        The community-driven platform for evaluating AI models on Spanish and Portuguese benchmarks. Advancing AI excellence across Latin America through transparent, rigorous evaluation.
-        </p>
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-secondary">{t('landing.hero_title')}</h1>
+        <p className="max-w-2xl mx-auto text-muted-foreground">{t('landing.hero_subtitle')}</p>
       </section>
 
       <section className="space-y-4">
@@ -197,12 +197,12 @@ export function Landing() {
             <tbody>
               {error && (
                 <tr>
-                  <td className="px-3 py-2 text-destructive" colSpan={orderedColumns.length}>{error}</td>
+                  <td className="px-3 py-2 text-destructive" colSpan={orderedColumns.length}>{t('landing.load_failed')}</td>
                 </tr>
               )}
               {!error && data === null && (
                 <tr>
-                  <td className="px-3 py-6 text-center text-muted-foreground" colSpan={orderedColumns.length}>Loading…</td>
+                  <td className="px-3 py-6 text-center text-muted-foreground" colSpan={orderedColumns.length}>{t('common.loading')}</td>
                 </tr>
               )}
               {!error && data && sortedData.map((row, idx) => (
@@ -219,7 +219,7 @@ export function Landing() {
         </div>
 
         <p className="text-xs text-muted-foreground">
-          Source: <a className="underline" href="https://huggingface.co/datasets/mauroibz/leaderboard-results/" target="_blank" rel="noreferrer">Hugging Face dataset</a>.
+          {t('landing.source_prefix')} <a className="underline" href="https://huggingface.co/datasets/mauroibz/leaderboard-results/" target="_blank" rel="noreferrer">{t('landing.source_link')}</a>.
         </p>
       </section>
     </div>
