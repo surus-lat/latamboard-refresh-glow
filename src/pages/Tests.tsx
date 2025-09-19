@@ -59,7 +59,7 @@ function groupStyles(groupKey: string) {
 }
 
 export function Tests() {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const { groups, tasks, error } = useTasksData()
   const [expanded, setExpanded] = useState<Record<string, boolean>>({})
   const [groupExpanded, setGroupExpanded] = useState<Record<string, boolean>>({})
@@ -93,6 +93,19 @@ export function Tests() {
 
   const entries = Object.entries(groups.task_groups)
 
+  function lx<T extends Record<string, any>>(obj: T, key: string): string {
+    const suffixes = locale === 'pt' ? ['_pt', '_pr'] : locale === 'es' ? ['_es'] : ['_en']
+    for (const s of suffixes) {
+      const k = `${key}${s}`
+      if (typeof obj[k] === 'string' && obj[k]) return obj[k]
+    }
+    // fallback to english explicit
+    if (typeof obj[`${key}_en`] === 'string' && obj[`${key}_en`]) return obj[`${key}_en`]
+    // finally base
+    if (typeof obj[key] === 'string' && obj[key]) return obj[key]
+    return ''
+  }
+
   return (
     <div className="container py-10">
       <h1 className="text-3xl font-bold mb-6">{t('tests.title')}</h1>
@@ -111,10 +124,10 @@ export function Tests() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h2 className="text-xl font-semibold flex items-center gap-2">
-                    {group.name}
+                    {lx(group, 'name')}
                     <span className={`transition-transform ${groupExpanded[groupKey] ? 'rotate-90' : ''}`}>›</span>
                   </h2>
-                  <p className="text-sm text-muted-foreground">{group.description}</p>
+                  <p className="text-sm text-muted-foreground">{lx(group, 'description')}</p>
                 </div>
                 {group.repository && (
                   <a
@@ -128,8 +141,8 @@ export function Tests() {
                   </a>
                 )}
               </div>
-              {groupExpanded[groupKey] && group.long_description && (
-                <div className="mt-3 text-sm text-foreground/90" dangerouslySetInnerHTML={renderMarkdownLinks(group.long_description)} />
+              {groupExpanded[groupKey] && (lx(group, 'long_description')) && (
+                <div className="mt-3 text-sm text-foreground/90" dangerouslySetInnerHTML={renderMarkdownLinks(lx(group, 'long_description'))} />
               )}
             </div>
 
@@ -137,14 +150,14 @@ export function Tests() {
               {(groupedTasks[groupKey] ?? []).map(({ id, task }) => (
                 <div key={id} className="rounded border bg-card/60">
                   <button aria-expanded={!!expanded[id]} onClick={() => toggle(id)} className="w-full text-left p-4">
-                    <div className="font-medium">{task.name}</div>
-                    <div className="text-sm text-muted-foreground">{task.description}</div>
+                    <div className="font-medium">{lx(task, 'name')}</div>
+                    <div className="text-sm text-muted-foreground">{lx(task, 'description')}</div>
                     <div className="mt-2 text-xs text-muted-foreground">{t('tests.key')}: {id}{typeof task.fewshot === 'number' ? ` • ${t('tests.shots')}: ${task.fewshot}` : ''}</div>
                   </button>
                   {expanded[id] && (
                     <div className="px-4 pb-4 text-sm text-foreground/90">
-                      {task.long_description && (
-                        <div className="mb-2" dangerouslySetInnerHTML={renderMarkdownLinks(task.long_description)} />
+                      {lx(task, 'long_description') && (
+                        <div className="mb-2" dangerouslySetInnerHTML={renderMarkdownLinks(lx(task, 'long_description'))} />
                       )}
                       {task.URL && (
                         <a className="text-xs underline text-secondary" href={task.URL} target="_blank" rel="noreferrer">{t('tests.dataset')}</a>
