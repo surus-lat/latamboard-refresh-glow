@@ -28,7 +28,7 @@ function Nav() {
           <Link to="/" className="hover:text-secondary">{t('common.home')}</Link>
           <Link to="/tests" className="hover:text-secondary">{t('common.tasks')}</Link>
           <Link to="/about" className="hover:text-secondary">{t('common.about')}</Link>
-          <Link to="/submit" className="hover:text-secondary">{t('common.submit')}</Link>
+          <Link to="/contribute" className="hover:text-secondary">{t('common.contribute')}</Link>
           <LanguageSwitcher />
         </nav>
         {/* Mobile hamburger */}
@@ -61,7 +61,7 @@ function Nav() {
             <Link to="/" className="hover:text-secondary" onClick={() => setIsMobileOpen(false)}>{t('common.home')}</Link>
             <Link to="/tests" className="hover:text-secondary" onClick={() => setIsMobileOpen(false)}>{t('common.tasks')}</Link>
             <Link to="/about" className="hover:text-secondary" onClick={() => setIsMobileOpen(false)}>{t('common.about')}</Link>
-            <Link to="/submit" className="hover:text-secondary" onClick={() => setIsMobileOpen(false)}>{t('common.submit')}</Link>
+            <Link to="/contribute" className="hover:text-secondary" onClick={() => setIsMobileOpen(false)}>{t('common.contribute')}</Link>
             <div className="pt-1">
               <LanguageSwitcher />
             </div>
@@ -78,10 +78,10 @@ function Footer() {
     <footer className="border-t bg-card/60">
       <div className="container py-6 text-sm flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <div>
-          © {new Date().getFullYear()} surus.dev — {t('common.app_name')}
+          © {new Date().getFullYear()} surus.lat — {t('common.app_name')}
         </div>
         <div className="flex gap-4">
-          <a href="https://surus.dev" target="_blank" rel="noreferrer" className="hover:text-secondary">{t('common.our_website')}</a>
+          <a href="https://surus.lat" target="_blank" rel="noreferrer" className="hover:text-secondary">{t('common.our_website')}</a>
           <a href="https://discord.com/invite/yGCCUhqtpS" target="_blank" rel="noreferrer" className="hover:text-secondary">{t('common.join_discord')}</a>
           <a href="mailto:contacto@surus.dev" className="hover:text-secondary">{t('common.contact_email')}</a>
         </div>
@@ -100,7 +100,7 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/about" element={<About />} />
             <Route path="/tests" element={<Tests />} />
-            <Route path="/submit" element={<Submit />} />
+            <Route path="/contribute" element={<Submit />} />
           </Routes>
         </main>
         <Footer />
