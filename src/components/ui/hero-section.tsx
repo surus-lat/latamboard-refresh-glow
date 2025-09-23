@@ -1,15 +1,35 @@
+import velascoPainting from '../assets/velasco-painting.jpg'
+
 export function HeroSection() {
   return (
-    <section className="py-32 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/3 via-transparent to-transparent"></div>
-      <div className="max-w-4xl mx-auto text-center relative">
-        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-6">
-          LatamBoard
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Performance benchmarks for Latin American language models
-        </p>
-        <div className="mt-12 w-16 h-px bg-border mx-auto"></div>
+    <section className="py-32 px-4 relative overflow-hidden min-h-screen flex items-center justify-center">
+      {/* Artistic Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${velascoPainting})` }}
+      />
+      
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-background/20 backdrop-blur-[1px]"></div>
+      
+      <div className="max-w-4xl mx-auto text-center relative z-10">
+        {/* Main Title in Floating Blur Container */}
+        <div className="inline-flex items-center justify-center mb-8">
+          <div className="backdrop-blur-md bg-background/10 border border-background/20 rounded-full px-12 py-8 shadow-2xl">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-background drop-shadow-lg">
+              LatamBoard
+            </h1>
+          </div>
+        </div>
+        
+        {/* Subtitle in Floating Blur Container */}
+        <div className="inline-flex items-center justify-center">
+          <div className="backdrop-blur-md bg-background/10 border border-background/20 rounded-full px-8 py-4 shadow-xl">
+            <p className="text-base sm:text-lg text-background/90 font-medium drop-shadow">
+              Performance benchmarks for Latin American language models
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   )
