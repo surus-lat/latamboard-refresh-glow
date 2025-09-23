@@ -16,7 +16,7 @@ export function About() {
   const content = contentMap[locale] || contentMap.en
 
   return (
-    <div className="container prose prose-neutral max-w-3xl py-10">
+    <div className="container prose prose-neutral dark:prose-invert max-w-3xl py-10 mx-auto">
       <Markdown>{content}</Markdown>
     </div>
   )
