@@ -5,12 +5,12 @@ export function HeroSection() {
     <section className="py-32 px-4 relative overflow-hidden min-h-screen flex items-center justify-center">
       {/* Artistic Background */}
       <div 
-        className="absolute inset-8 bg-contain bg-center bg-no-repeat rounded-3xl opacity-40"
+        className="absolute inset-8 bg-contain bg-center bg-no-repeat rounded-3xl"
         style={{ backgroundImage: `url(${velascoPainting})` }}
       />
       
       {/* Modern Gradient Overlay */}
-      <div className="absolute inset-8 rounded-3xl bg-gradient-to-br from-background/60 via-background/40 to-background/60 backdrop-blur-sm"></div>
+      <div className="absolute inset-8 rounded-3xl bg-gradient-to-br from-background/70 via-background/50 to-background/70 backdrop-blur-sm"></div>
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Main Title in Floating Blur Container */}
