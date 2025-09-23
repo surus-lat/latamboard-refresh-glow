@@ -4,81 +4,64 @@
 
 @layer base {
   :root {
-    /* Modern color palette inspired by Vercel/shadcn */
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
+    /* Minimalist neutral palette */
+    --background: 0 0% 99%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 0 0% 15%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 15%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 15%;
+    --destructive: 0 84% 60%; 
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
-    --radius: 0.75rem;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 15%;
+    --radius: 0.5rem;
     
-    /* Custom semantic colors */
-    --success: 142 76% 36%;
-    --success-foreground: 0 0% 98%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 240 10% 3.9%;
-    --info: 221 83% 53%;
-    --info-foreground: 0 0% 98%;
+    /* Subtle performance indicators */
+    --score-excellent: 0 0% 20%;
+    --score-good: 0 0% 35%;
+    --score-average: 0 0% 50%;
+    --score-poor: 0 0% 65%;
     
-    /* Performance score colors */
-    --score-excellent: 142 76% 36%;
-    --score-good: 173 58% 39%;
-    --score-average: 38 92% 50%;
-    --score-poor: 0 84% 60%;
-    
-    /* Gradients */
-    --gradient-brand: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
-    --gradient-subtle: linear-gradient(180deg, transparent 0%, hsl(var(--muted) / 0.3) 100%);
+    /* Minimal gradients */
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 99%) 0%, hsl(0 0% 97%) 100%);
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 90%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 90%;
     
-    /* Custom dark mode colors */
-    --success: 142 69% 58%;
-    --success-foreground: 240 10% 3.9%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 240 10% 3.9%;
-    --info: 221 83% 53%;
-    --info-foreground: 0 0% 98%;
-    
-    /* Performance score colors (dark) */
-    --score-excellent: 142 69% 58%;
-    --score-good: 173 58% 39%;
-    --score-average: 38 92% 50%;
-    --score-poor: 0 62.8% 30.6%;
+    /* Subtle dark performance indicators */
+    --score-excellent: 0 0% 80%;
+    --score-good: 0 0% 65%;
+    --score-average: 0 0% 50%;
+    --score-poor: 0 0% 35%;
   }
 }
 
@@ -164,25 +147,25 @@
     @apply badge bg-destructive text-destructive-foreground;
   }
   
-  /* Score badges */
-  .score-badge {
-    @apply badge font-mono font-medium;
+  /* Minimal score display */
+  .score-minimal {
+    @apply font-mono text-xs px-2 py-1 rounded border border-border/50 bg-background/50;
   }
   
   .score-excellent {
-    @apply score-badge bg-score-excellent/10 text-score-excellent border border-score-excellent/20;
+    @apply score-minimal text-score-excellent;
   }
   
   .score-good {
-    @apply score-badge bg-score-good/10 text-score-good border border-score-good/20;
+    @apply score-minimal text-score-good;
   }
   
   .score-average {
-    @apply score-badge bg-warning/10 text-warning border border-warning/20;
+    @apply score-minimal text-score-average;
   }
   
   .score-poor {
-    @apply score-badge bg-destructive/10 text-destructive border border-destructive/20;
+    @apply score-minimal text-score-poor;
   }
   
   /* Interactive elements */

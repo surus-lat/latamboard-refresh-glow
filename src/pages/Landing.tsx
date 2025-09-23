@@ -136,7 +136,6 @@ export function Landing() {
       <div className="container pb-20 space-y-8">
         <FilterPanel
           visibleColumns={visibleColumns}
-          aggregates={aggregates}
           groupColumnMap={groupColumnMap}
           groupOrder={groupOrder}
           onToggleColumn={toggleColumn}

@@ -40,41 +40,19 @@ export function LeaderboardTable({
 
   const getRankIcon = (index: number) => {
     switch (index) {
-      case 0: return <Trophy className="h-4 w-4 text-yellow-500" />
-      case 1: return <Medal className="h-4 w-4 text-gray-400" />
-      case 2: return <Award className="h-4 w-4 text-amber-600" />
-      default: return <span className="text-sm text-muted-foreground font-mono">#{index + 1}</span>
+      case 0: return <Trophy className="h-4 w-4 text-foreground/80" />
+      case 1: return <Medal className="h-4 w-4 text-foreground/60" />
+      case 2: return <Award className="h-4 w-4 text-foreground/60" />
+      default: return <span className="text-xs text-muted-foreground font-mono">#{index + 1}</span>
     }
   }
 
-  const getColumnHeaderStyle = (col: string) => {
-    const baseStyle = "px-4 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider cursor-pointer select-none hover:text-foreground transition-colors"
-    
-    if (aggregates.has(col)) {
-      return `${baseStyle} bg-primary/5 border-r border-primary/10`
-    }
-    if (col.startsWith('spanish_')) {
-      return `${baseStyle} bg-amber-500/5 border-r border-amber-500/10`
-    }
-    if (col.startsWith('portuguese_')) {
-      return `${baseStyle} bg-emerald-500/5 border-r border-emerald-500/10`
-    }
-    return baseStyle
+  const getColumnHeaderStyle = () => {
+    return "px-4 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider cursor-pointer select-none hover:text-foreground transition-colors"
   }
 
-  const getColumnCellStyle = (col: string) => {
-    const baseStyle = "px-4 py-4 whitespace-nowrap"
-    
-    if (aggregates.has(col)) {
-      return `${baseStyle} bg-primary/5 border-r border-primary/10`
-    }
-    if (col.startsWith('spanish_')) {
-      return `${baseStyle} bg-amber-500/5 border-r border-amber-500/10`
-    }
-    if (col.startsWith('portuguese_')) {
-      return `${baseStyle} bg-emerald-500/5 border-r border-emerald-500/10`
-    }
-    return baseStyle
+  const getColumnCellStyle = () => {
+    return "px-4 py-4 whitespace-nowrap"
   }
 
   const visibleOrderedColumns = orderedColumns.filter(col => visibleColumns.includes(col))
@@ -113,7 +91,7 @@ export function LeaderboardTable({
               {visibleOrderedColumns.map((col) => (
                 <th
                   key={col}
-                  className={getColumnHeaderStyle(col)}
+                  className={getColumnHeaderStyle()}
                   onClick={() => onSort(col)}
                 >
                   <div className="flex items-center gap-2">
@@ -144,7 +122,7 @@ export function LeaderboardTable({
                   </div>
                 </td>
                 {visibleOrderedColumns.map((col) => (
-                  <td key={col} className={getColumnCellStyle(col)}>
+                  <td key={col} className={getColumnCellStyle()}>
                     {col === 'model_name' ? (
                       <div className="font-medium text-foreground max-w-xs truncate">
                         {String(row[col] || '')}

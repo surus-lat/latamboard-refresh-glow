@@ -3,7 +3,6 @@ import { ChevronDown, Filter, X } from 'lucide-react'
 
 interface FilterPanelProps {
   visibleColumns: string[]
-  aggregates: Set<string>
   groupColumnMap: Record<string, string[]>
   groupOrder: string[]
   onToggleColumn: (column: string) => void
@@ -11,37 +10,17 @@ interface FilterPanelProps {
 
 export function FilterPanel({
   visibleColumns,
-  aggregates,
   groupColumnMap,
   groupOrder,
   onToggleColumn
 }: FilterPanelProps) {
   const [isExpanded, setIsExpanded] = useState(false)
 
-  const getScoreType = (column: string) => {
-    if (aggregates.has(column)) return 'aggregate'
-    if (column.startsWith('spanish_')) return 'spanish'
-    if (column.startsWith('portuguese_')) return 'portuguese'
-    return 'other'
-  }
-
-  const getBadgeStyle = (column: string, isActive: boolean) => {
-    const type = getScoreType(column)
-    
+  const getBadgeStyle = (isActive: boolean) => {
     if (!isActive) {
       return 'badge-outline hover:bg-accent hover:text-accent-foreground'
     }
-
-    switch (type) {
-      case 'aggregate':
-        return 'badge-default'
-      case 'spanish':
-        return 'bg-amber-500/10 text-amber-600 border-amber-500/20 hover:bg-amber-500/20'
-      case 'portuguese':
-        return 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20 hover:bg-emerald-500/20'
-      default:
-        return 'badge-secondary'
-    }
+    return 'badge-default'
   }
 
   const cleanColumnName = (column: string) => {
@@ -49,18 +28,18 @@ export function FilterPanel({
   }
 
   return (
-    <div className="card p-6 space-y-4">
+    <div className="bg-card border rounded-lg p-6 space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Filter className="h-5 w-5 text-muted-foreground" />
-          <h3 className="font-semibold">Column Filters</h3>
-          <span className="badge-outline text-xs">
-            {visibleColumns.length} selected
+          <Filter className="h-4 w-4 text-muted-foreground" />
+          <h3 className="text-sm font-medium">Filters</h3>
+          <span className="text-xs text-muted-foreground px-2 py-1 bg-muted rounded">
+            {visibleColumns.length}
           </span>
         </div>
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="btn-ghost p-2"
+          className="p-1 text-muted-foreground hover:text-foreground transition-colors"
         >
           <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
         </button>
@@ -74,7 +53,7 @@ export function FilterPanel({
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => onToggleColumn('overall_latam_score')}
-                className={`badge transition-all ${getBadgeStyle('overall_latam_score', visibleColumns.includes('overall_latam_score'))}`}
+                className={`badge transition-all ${getBadgeStyle(visibleColumns.includes('overall_latam_score'))}`}
               >
                 {visibleColumns.includes('overall_latam_score') && (
                   <X className="h-3 w-3 mr-1" />
@@ -104,7 +83,7 @@ export function FilterPanel({
                   {/* Aggregate score */}
                   <button
                     onClick={() => onToggleColumn(aggCol)}
-                    className={`badge transition-all ${getBadgeStyle(aggCol, visibleColumns.includes(aggCol))}`}
+                    className={`badge transition-all ${getBadgeStyle(visibleColumns.includes(aggCol))}`}
                   >
                     {visibleColumns.includes(aggCol) && (
                       <X className="h-3 w-3 mr-1" />
@@ -117,7 +96,7 @@ export function FilterPanel({
                     <button
                       key={column}
                       onClick={() => onToggleColumn(column)}
-                      className={`badge text-xs transition-all ${getBadgeStyle(column, visibleColumns.includes(column))}`}
+                      className={`badge text-xs transition-all ${getBadgeStyle(visibleColumns.includes(column))}`}
                     >
                       {visibleColumns.includes(column) && (
                         <X className="h-3 w-3 mr-1" />
