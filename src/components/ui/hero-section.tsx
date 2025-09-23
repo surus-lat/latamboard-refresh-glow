@@ -1,4 +1,4 @@
-import velascoPainting from '../assets/velasco-painting.jpg'
+import velascoPainting from '../../assets/velasco-painting.jpg'
 
 export function HeroSection() {
   return (
