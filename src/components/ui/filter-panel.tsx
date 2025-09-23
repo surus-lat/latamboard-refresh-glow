@@ -28,14 +28,14 @@ export function FilterPanel({
   }
 
   return (
-    <div className="card-elevated border border-border/50 rounded-xl p-6 space-y-4 backdrop-blur-md bg-card/80">
+    <div className="card border rounded-lg p-6 space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-primary/10">
+          <div className="p-2 rounded bg-primary/5">
             <Filter className="h-4 w-4 text-primary" />
           </div>
-          <h3 className="text-base font-semibold">Filters</h3>
-          <span className="text-xs text-muted-foreground px-3 py-1 bg-muted/50 rounded-full border border-border/30">
+          <h3 className="text-base font-bold">Filters</h3>
+          <span className="text-xs text-muted-foreground px-2 py-1 bg-muted rounded border">
             {visibleColumns.length} active
           </span>
         </div>
