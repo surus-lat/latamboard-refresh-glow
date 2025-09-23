@@ -12,6 +12,7 @@
     "fetch:data": "node ./scripts/fetch-data.mjs"
   },
   "dependencies": {
+    "@types/node": "^24.5.2",
     "lovable-tagger": "^1.1.9",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
