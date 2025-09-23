@@ -28,20 +28,22 @@ export function FilterPanel({
   }
 
   return (
-    <div className="bg-card border rounded-lg p-6 space-y-4">
+    <div className="card-elevated border border-border/50 rounded-xl p-6 space-y-4 backdrop-blur-md bg-card/80">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Filter className="h-4 w-4 text-muted-foreground" />
-          <h3 className="text-sm font-medium">Filters</h3>
-          <span className="text-xs text-muted-foreground px-2 py-1 bg-muted rounded">
-            {visibleColumns.length}
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-primary/10">
+            <Filter className="h-4 w-4 text-primary" />
+          </div>
+          <h3 className="text-base font-semibold">Filters</h3>
+          <span className="text-xs text-muted-foreground px-3 py-1 bg-muted/50 rounded-full border border-border/30">
+            {visibleColumns.length} active
           </span>
         </div>
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="p-1 text-muted-foreground hover:text-foreground transition-colors"
+          className="p-2 text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted/30"
         >
-          <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
         </button>
       </div>
 

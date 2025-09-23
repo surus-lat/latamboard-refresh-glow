@@ -1,13 +1,15 @@
 export function HeroSection() {
   return (
-    <section className="py-24 px-4">
-      <div className="max-w-3xl mx-auto text-center">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight text-foreground mb-8">
+    <section className="py-32 px-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/10"></div>
+      <div className="max-w-4xl mx-auto text-center relative">
+        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extralight tracking-tight text-foreground mb-6">
           LatamBoard
         </h1>
-        <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
           Performance benchmarks for Latin American language models
         </p>
+        <div className="mt-12 w-24 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent mx-auto"></div>
       </div>
     </section>
   )
