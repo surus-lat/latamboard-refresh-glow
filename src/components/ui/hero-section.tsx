@@ -10,7 +10,7 @@ export function HeroSection() {
       />
       
       {/* Modern Gradient Overlay */}
-      <div className="absolute inset-8 rounded-3xl bg-gradient-to-br from-background/70 via-background/50 to-background/70 backdrop-blur-sm"></div>
+      <div className="absolute inset-8 rounded-3xl bg-gradient-to-br from-background/30 via-background/20 to-background/30 backdrop-blur-sm"></div>
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Main Title in Floating Blur Container */}
