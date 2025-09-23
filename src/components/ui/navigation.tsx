@@ -26,7 +26,7 @@ export function Navigation() {
           className="font-mono text-lg font-medium tracking-tight"
           onClick={() => setIsMobileOpen(false)}
         >
-          LATAM Leaderboard
+          LatamBoard
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">

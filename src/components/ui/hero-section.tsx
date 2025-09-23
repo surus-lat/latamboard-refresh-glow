@@ -17,7 +17,7 @@ export function HeroSection() {
         <div className="inline-flex items-center justify-center mb-8">
           <div className="backdrop-blur-md bg-background/10 border border-background/20 rounded-full px-12 py-8 shadow-2xl">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-background drop-shadow-lg">
-              LATAM Leaderboard
+              LatamBoard
             </h1>
           </div>
         </div>
