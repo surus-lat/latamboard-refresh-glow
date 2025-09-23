@@ -13,7 +13,7 @@ export function Navigation() {
 
   const navItems = [
     { href: '/', label: 'Home' },
-    { href: '/tests', label: 'Tests' },
+    { href: '/tests', label: 'Tasks' },
     { href: '/about', label: 'About' },
     { href: '/contribute', label: 'Submit' },
   ]
@@ -26,7 +26,7 @@ export function Navigation() {
           className="font-mono text-lg font-medium tracking-tight"
           onClick={() => setIsMobileOpen(false)}
         >
-          LatamBoard
+          LATAM Leaderboard
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
