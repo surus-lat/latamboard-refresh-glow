@@ -26,15 +26,6 @@ export function LeaderboardTable({
   error = null
 }: LeaderboardTableProps) {
   
-  const getBestScoreForRow = (row: LeaderboardRow, columns: string[]) => {
-    const scoreColumns = columns.filter(col => col.includes('_score') && typeof row[col] === 'number')
-    if (scoreColumns.length === 0) return null
-    
-    const scores = scoreColumns.map(col => ({ col, value: row[col] as number }))
-    const maxScore = Math.max(...scores.map(s => s.value))
-    return scores.find(s => s.value === maxScore)?.col || null
-  }
-
   const formatScore = (value: any) => {
     if (typeof value !== 'number') return String(value || '-')
     return (value * 100).toFixed(1) + '%'
@@ -109,14 +100,11 @@ export function LeaderboardTable({
             </tr>
           </thead>
           <tbody className="divide-y divide-border">
-            {data.map((row, index) => {
-              const bestScoreColumn = getBestScoreForRow(row, visibleOrderedColumns)
-              
-              return (
-                <tr 
-                  key={index} 
-                  className="hover:bg-muted/30 transition-colors group"
-                >
+            {data.map((row, index) => (
+              <tr 
+                key={index} 
+                className="hover:bg-muted/30 transition-colors group"
+              >
                   <td className="sticky left-0 z-10 bg-background group-hover:bg-muted/30 px-6 py-4 border-r border-border">
                     <div className="flex items-center justify-center">
                       {getRankIcon(index)}
@@ -130,9 +118,7 @@ export function LeaderboardTable({
                         </div>
                       ) : typeof row[col] === 'number' && (aggregates.has(col) || col.includes('_score')) ? (
                         <div className="flex items-center justify-center">
-                          <span className={`inline-flex items-center justify-center min-w-[64px] px-3 py-1 rounded text-sm bg-muted border border-border ${
-                            col === bestScoreColumn ? 'font-bold text-foreground' : 'font-normal text-muted-foreground'
-                          }`}>
+                          <span className="inline-flex items-center justify-center min-w-[64px] px-3 py-1 rounded text-sm bg-muted border border-border text-muted-foreground">
                             {formatScore(row[col])}
                           </span>
                         </div>
@@ -144,8 +130,7 @@ export function LeaderboardTable({
                     </td>
                   ))}
                 </tr>
-              )
-            })}
+              ))}
           </tbody>
         </table>
       </div>
