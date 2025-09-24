@@ -19,8 +19,7 @@ export const en: TranslationDict = {
   },
   landing: {
     hero_title: 'LatamBoard',
-    hero_subtitle:
-      "The community-driven platform for evaluating AI models on Spanish and Portuguese benchmarks. Advancing AI excellence across Latin America through transparent, rigorous evaluation.",
+    hero_subtitle: "Performance benchmarks for Latin American AI Models",
     source_prefix: 'Source:',
     source_link: 'Hugging Face dataset',
     load_failed: 'Failed to load leaderboard data',
@@ -142,8 +141,7 @@ export const es: TranslationDict = {
   },
   landing: {
     hero_title: 'LatamBoard',
-    hero_subtitle:
-      'Plataforma comunitaria para evaluar modelos de IA en español y portugués. Impulsando la excelencia en IA en América Latina con evaluación rigurosa y transparente.',
+    hero_subtitle: 'Benchmarks de rendimiento para modelos de IA latinoamericanos',
     source_prefix: 'Fuente:',
     source_link: 'Dataset en Hugging Face',
     load_failed: 'Error al cargar los datos del leaderboard',
@@ -265,8 +263,7 @@ export const pt: TranslationDict = {
   },
   landing: {
     hero_title: 'LatamBoard',
-    hero_subtitle:
-      'Plataforma comunitária para avaliar modelos de IA em espanhol e português. Promovendo excelência em IA na América Latina com avaliação rigorosa e transparente.',
+    hero_subtitle: 'Benchmarks de desempenho para modelos de IA da América Latina',
     source_prefix: 'Fonte:',
     source_link: 'Dataset no Hugging Face',
     load_failed: 'Falha ao carregar os dados do leaderboard',
