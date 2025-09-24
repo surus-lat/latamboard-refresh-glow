@@ -133,26 +133,31 @@ export function Landing() {
     <div className="min-h-screen">
       <HeroSection />
       
-      <div className="container pb-20 space-y-8">
-        <FilterPanel
-          visibleColumns={visibleColumns}
-          groupColumnMap={groupColumnMap}
-          groupOrder={groupOrder}
-          onToggleColumn={toggleColumn}
-        />
+      <div id="leaderboard" className="pb-20 flex gap-8">
+        <div className="w-1/5">
+          <FilterPanel
+            visibleColumns={visibleColumns}
+            groupColumnMap={groupColumnMap}
+            groupOrder={groupOrder}
+            onToggleColumn={toggleColumn}
+          />
+        </div>
 
-        <LeaderboardTable
-          data={sortedData}
-          visibleColumns={visibleColumns}
-          orderedColumns={orderedColumns}
-          aggregates={aggregates}
-          sortBy={sortBy}
-          sortDir={sortDir}
-          onSort={handleSort}
-          loading={data === null && !error}
-          error={error}
-        />
+        <div className="w-4/5">
+          <LeaderboardTable
+            data={sortedData}
+            visibleColumns={visibleColumns}
+            orderedColumns={orderedColumns}
+            aggregates={aggregates}
+            sortBy={sortBy}
+            sortDir={sortDir}
+            onSort={handleSort}
+            loading={data === null && !error}
+            error={error}
+          />
+        </div>
 
+      </div>
         <div className="flex items-center justify-center gap-2 pt-8 text-sm text-muted-foreground">
           <span>{t('landing.source_prefix')}</span>
           <a 
@@ -165,7 +170,6 @@ export function Landing() {
             <ExternalLink className="h-3 w-3" />
           </a>
         </div>
-      </div>
     </div>
   )
 }
