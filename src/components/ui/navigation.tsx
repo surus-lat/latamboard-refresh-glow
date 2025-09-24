@@ -1,21 +1,22 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { LanguageSwitcher } from '../../i18n/I18nProvider'
+import { LanguageSwitcher, useI18n } from '../../i18n/I18nProvider'
 
 export function Navigation() {
   const location = useLocation()
   const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const { t } = useI18n()
 
   useEffect(() => {
     setIsMobileOpen(false)
   }, [location.pathname])
 
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/tests', label: 'Tasks' },
-    { href: '/about', label: 'About' },
-    { href: '/contribute', label: 'Submit' },
+    { href: '/', label: t('common.home') },
+    { href: '/tests', label: t('common.tasks') },
+    { href: '/about', label: t('common.about') },
+    { href: '/contribute', label: t('common.contribute') },
   ]
 
   return (

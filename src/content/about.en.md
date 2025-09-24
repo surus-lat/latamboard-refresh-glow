@@ -1,8 +1,8 @@
-# About LATAM Leaderboard
+# About LatamBoard
 
-LATAM Leaderboard is a community initiative dedicated to establishing task-oriented, transparent evaluation standards for AI systems serving Latin America. We're helping build the engine to measure real work, not just language fluency.
+LatamBoard is a community initiative dedicated to establishing task-oriented, transparent evaluation standards for AI systems serving Latin America. We're helping build the engine to measure real work, not just language fluency.
 
-LATAM Leaderboard is more than a ranking system, it's the foundation for establishing our region as a global AI innovation hub. Whether you're a researcher, developer, or AI enthusiast, there's a place for you in building these evaluation standards.
+LatamBoard is more than a ranking system, it's the foundation for establishing our region as a global AI innovation hub. Whether you're a researcher, developer, or AI enthusiast, there's a place for you in building these evaluation standards.
 
 ## Our Mission
 
@@ -66,8 +66,8 @@ Access reliable performance data to guide implementation. Propose your actual ta
 
 ## Help Build Latin America's AI Future
 
-LATAM Leaderboard is more than a ranking, it's the evaluation layer that lets our region train and deploy systems that solve real problems.
+LatamBoard is more than a ranking, it's the evaluation layer that lets our region train and deploy systems that solve real problems.
 
 ## Ready to contribute?
 
-LATAM Leaderboard is proudly supported by compute infrastructure from Surus, with development and methodology contributions from the broader LATAM AI community.
+LatamBoard is proudly supported by compute infrastructure from Surus, with development and methodology contributions from the broader LATAM AI community.
