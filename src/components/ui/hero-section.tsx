@@ -12,7 +12,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative overflow-hidden min-h-screen flex items-center justify-center">
+    <section className="relative overflow-hidden min-h-screen flex items-center justify-center -mt-16">
       {/* Artistic Background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
@@ -22,7 +22,7 @@ export function HeroSection() {
       {/* Modern Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-background/20 to-background/30"></div>
 
-      <div className="relative z-10 w-full">
+      <div className="relative z-10 w-full pt-16">
         {/* Main Title in Floating Blur Container */}
         <div className="backdrop-blur-md bg-background/10 shadow-2xl">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
