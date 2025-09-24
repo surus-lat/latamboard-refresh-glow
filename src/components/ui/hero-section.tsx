@@ -46,6 +46,18 @@ export function HeroSection() {
           </button>
         </div>
       </div>
+
+      {/* Painting Attribution */}
+      <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-20">
+        <div className="bg-black/20 backdrop-blur-sm rounded-lg px-3 py-2 md:px-4 md:py-2">
+          <p className="text-xs md:text-sm text-white/90 font-medium">
+            José María Velasco
+          </p>
+          <p className="text-[10px] md:text-xs text-white/70">
+            Valle de México desde el cerro de Santa Isabel
+          </p>
+        </div>
+      </div>
     </section>
   )
 }
