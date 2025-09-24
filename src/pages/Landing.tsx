@@ -56,6 +56,7 @@ export function Landing() {
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc')
   const [taskGroups, setTaskGroups] = useState<TaskGroups | null>(null)
   const [/* tasksList */, setTasksList] = useState<TasksList | null>(null)
+  const [showMobileFilters, setShowMobileFilters] = useState<boolean>(false)
 
   useEffect(() => {
     fetchLeaderboard().then(setData).catch(() => setError('Failed to load leaderboard data'))
@@ -133,28 +134,57 @@ export function Landing() {
     <div className="min-h-screen">
       <HeroSection />
       
-      <div id="leaderboard" className="pb-20 flex gap-8">
-        <div className="w-1/5">
-          <FilterPanel
-            visibleColumns={visibleColumns}
-            groupColumnMap={groupColumnMap}
-            groupOrder={groupOrder}
-            onToggleColumn={toggleColumn}
-          />
+      <div id="leaderboard" className="pb-8 md:pb-20 container">
+        {/* Mobile Filter Toggle */}
+        <div className="lg:hidden mb-6">
+          <button
+            onClick={() => setShowMobileFilters(!showMobileFilters)}
+            className="btn-outline w-full flex items-center justify-center gap-2"
+          >
+            <span>Filters</span>
+            <span className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full">
+              {visibleColumns.length}
+            </span>
+          </button>
         </div>
 
-        <div className="w-4/5">
-          <LeaderboardTable
-            data={sortedData}
-            visibleColumns={visibleColumns}
-            orderedColumns={orderedColumns}
-            aggregates={aggregates}
-            sortBy={sortBy}
-            sortDir={sortDir}
-            onSort={handleSort}
-            loading={data === null && !error}
-            error={error}
-          />
+        <div className="flex flex-col lg:flex-row gap-4 md:gap-8">
+          {/* Desktop Sidebar */}
+          <div className="hidden lg:block w-1/5">
+            <FilterPanel
+              visibleColumns={visibleColumns}
+              groupColumnMap={groupColumnMap}
+              groupOrder={groupOrder}
+              onToggleColumn={toggleColumn}
+            />
+          </div>
+
+          {/* Mobile Filter Panel */}
+          {showMobileFilters && (
+            <div className="lg:hidden mb-4 md:mb-6">
+              <FilterPanel
+                visibleColumns={visibleColumns}
+                groupColumnMap={groupColumnMap}
+                groupOrder={groupOrder}
+                onToggleColumn={toggleColumn}
+              />
+            </div>
+          )}
+
+          {/* Main Content */}
+          <div className="flex-1 lg:w-4/5">
+            <LeaderboardTable
+              data={sortedData}
+              visibleColumns={visibleColumns}
+              orderedColumns={orderedColumns}
+              aggregates={aggregates}
+              sortBy={sortBy}
+              sortDir={sortDir}
+              onSort={handleSort}
+              loading={data === null && !error}
+              error={error}
+            />
+          </div>
         </div>
 
       </div>
